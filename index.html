@@ -3,8 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SYNAPSE AGENCY — сайты, Telegram-боты и Mini Apps как единая система</title>
-<meta name="description" content="SYNAPSE AGENCY — digital-студия полного цикла. Сайты, Telegram Mini Apps, боты, UI/UX и воронки продаж работают как одна система. Срок и цена фиксируются до старта.">
+<title>SYNAPSE AGENCY — сайты, воронки продаж и автоматизация для бизнеса</title>
+<meta name="description" content="Разрабатываем сайты и посадочные страницы, проектируем воронки продаж, внедряем CRM и автоматизируем обработку заявок. Комплексные решения и отдельные услуги для сервисного бизнеса.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SYNAPSE AGENCY — сайт, воронка и автоматизация в одной системе">
+<meta property="og:description" content="Создаём цифровые решения для сервисного бизнеса: от разработки сайта до автоматизации обработки заявок.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;800&family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -118,10 +121,18 @@ main,header,footer{position:relative;z-index:3}
 .pill{display:inline-flex;align-items:center;gap:9px;padding:8px 16px 8px 10px;border-radius:99px;border:1px solid var(--line);background:var(--glass);
   font-size:clamp(11px,2.9vw,13px);color:var(--muted);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);max-width:100%}
 .pill b{display:inline-block;width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 12px #fff;animation:pulse 2s infinite}
-h1{margin:22px 0 0;font-weight:600;font-size:clamp(28px,6.6vw,64px);line-height:1.06;letter-spacing:-.03em}
-.hero p.lead{margin:22px 0 0;max-width:48ch;color:var(--muted);font-size:clamp(14.5px,3.6vw,17.5px);line-height:1.65}
+.hero-label{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:22px 0 0;max-width:100%;font-size:clamp(10px,2.7vw,12.5px);font-weight:500;letter-spacing:.12em;color:var(--dim)}
+.hero-label::before{content:"";width:28px;height:1px;background:var(--chrome);flex:0 0 auto}
+h1{margin:14px 0 0;font-weight:600;font-size:clamp(25px,6.2vw,56px);line-height:1.08;letter-spacing:-.03em;overflow-wrap:normal;word-break:normal;hyphens:manual}
+h1 .nw{white-space:nowrap}
+@media (min-width:1041px){
+  /* две колонки: размер привязан к ширине левой колонки, чтобы «и автоматизация.» всегда помещалось в строку */
+  h1{font-size:clamp(38px,4.05vw,52px)}
+}
+.hero p.lead{margin:22px 0 0;max-width:50ch;color:var(--muted);font-size:clamp(14.5px,3.6vw,17px);line-height:1.65;text-wrap:pretty}
+.hero p.lead + p.lead{margin-top:12px}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.hero-note{margin:16px 0 0;font-size:12.5px;color:var(--dim)}
+.hero-note{margin:16px 0 0;max-width:52ch;font-size:12.5px;line-height:1.55;color:var(--dim)}
 .hero-art{position:relative;min-width:0}
 .synapse{width:100%;height:auto;overflow:visible;filter:drop-shadow(0 0 30px rgba(255,255,255,.14))}
 .synapse .edge{fill:none;stroke:rgba(255,255,255,.22);stroke-width:1}
@@ -142,20 +153,11 @@ h1{margin:22px 0 0;font-weight:600;font-size:clamp(28px,6.6vw,64px);line-height:
 /* ticker */
 .ticker{margin-top:clamp(30px,5.6vw,54px);border-block:1px solid var(--line);padding:15px 0;overflow:hidden;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-.tk-track{display:flex;gap:40px;width:max-content;animation:mq 24s linear infinite}
+.tk-track{display:flex;gap:40px;width:max-content;animation:mq 52s linear infinite}
 .ticker:hover .tk-track{animation-play-state:paused}
 .tk-track span{font-family:'Unbounded',sans-serif;font-size:clamp(11px,3vw,13.5px);font-weight:500;letter-spacing:.03em;color:var(--dim);white-space:nowrap;display:flex;align-items:center;gap:40px}
 .tk-track span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--chrome);flex:0 0 auto}
 @keyframes mq{to{transform:translateX(-50%)}}
-
-/* stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:clamp(28px,5vw,48px)}
-.stat{position:relative;padding:clamp(18px,3.4vw,26px);border-radius:var(--radius);border:1px solid var(--line);background:var(--ink-grad);overflow:hidden;transition:.4s var(--ease);min-width:0}
-.stat::after{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.12),transparent 42%);opacity:0;transition:opacity .4s}
-.stat:hover{border-color:rgba(255,255,255,.28);transform:translateY(-4px)}
-.stat:hover::after{opacity:1}
-.stat b{position:relative;display:block;font-family:'Unbounded',sans-serif;font-weight:600;font-size:clamp(20px,4.6vw,36px);line-height:1.1;letter-spacing:-.03em}
-.stat span{position:relative;display:block;margin-top:8px;font-size:clamp(11.5px,2.9vw,13.5px);color:var(--dim);line-height:1.45}
 
 /* ===================== SECTIONS ===================== */
 section{padding:clamp(52px,9vw,110px) 0;position:relative}
@@ -164,7 +166,9 @@ section{padding:clamp(52px,9vw,110px) 0;position:relative}
 .eyebrow::before{content:"";width:28px;height:1px;background:var(--chrome)}
 h2{margin:0;font-weight:500;font-size:clamp(23px,5vw,42px);line-height:1.16;letter-spacing:-.02em;max-width:20ch}
 h2.caps{font-weight:600}
-.sec-intro{margin:18px 0 0;color:var(--muted);max-width:58ch;font-size:clamp(14.5px,3.4vw,16.5px)}
+h2.wide{max-width:26ch}
+.sec-intro{margin:18px 0 0;color:var(--muted);max-width:60ch;font-size:clamp(14.5px,3.4vw,16.5px)}
+.sec-intro + .sec-intro{margin-top:10px}
 .rv{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .rv.in{opacity:1;transform:none}
 
@@ -185,30 +189,7 @@ h2.caps{font-weight:600}
 .value-card .vn{font-family:'Unbounded',sans-serif;font-size:clamp(24px,4.6vw,36px);font-weight:700;line-height:1;
   background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,.05));-webkit-background-clip:text;background-clip:text;color:transparent}
 .value-card h3{margin:16px 0 10px;font-size:clamp(15.5px,3.7vw,18.5px);font-weight:500;letter-spacing:-.015em}
-.value-card p{margin:0 0 18px;color:var(--muted);font-size:clamp(13.5px,3.2vw,14.5px);line-height:1.6}
-.value-quote{font-size:clamp(13px,3.1vw,14px);font-weight:600;padding-top:15px;border-top:1px solid var(--line-2);line-height:1.5}
-
-/* pricing */
-.price-wrap{margin-top:clamp(28px,5vw,46px);display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;align-items:start}
-.price-rows{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line-2)}
-.price-row{display:flex;align-items:center;gap:16px;padding:18px 22px;background:rgba(255,255,255,.02);border-bottom:1px solid var(--line-2);transition:.35s}
-.price-row:last-child{border-bottom:0}
-.price-row:hover{background:rgba(255,255,255,.05)}
-.price-row .pn{font-family:'Unbounded',sans-serif;font-size:13px;color:var(--dim);width:24px;flex:0 0 auto}
-.price-row .pname{flex:1;min-width:0;font-size:clamp(13.5px,3.3vw,15px);font-weight:500}
-.price-row .ptag{font-size:12.5px;color:var(--dim);white-space:nowrap;flex:0 0 auto}
-.price-callout{padding:clamp(20px,3.6vw,26px);border-radius:var(--radius);border:1px solid var(--line);background:var(--ink-grad)}
-.price-callout .pc-label{font-size:11.5px;color:var(--dim);letter-spacing:.1em;text-transform:uppercase}
-.price-callout .pc-big{display:block;margin-top:10px;font-family:'Unbounded',sans-serif;font-size:clamp(20px,4.2vw,26px);font-weight:600}
-.price-callout p{margin:12px 0 0;color:var(--muted);font-size:13.5px;line-height:1.6}
-
-/* stack strip */
-.stack-strip{margin-top:clamp(28px,5vw,46px);padding-top:26px;border-top:1px solid var(--line-2)}
-.stack-label{font-size:11.5px;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
-.stack-row{display:flex;flex-wrap:wrap;gap:10px}
-.stack-badge{display:inline-flex;align-items:center;gap:9px;padding:9px 15px 9px 9px;border-radius:99px;border:1px solid var(--line);font-size:13px;color:var(--muted);transition:.35s var(--ease)}
-.stack-badge:hover{border-color:rgba(255,255,255,.3);color:#fff}
-.stack-badge i{width:24px;height:24px;border-radius:7px;background:var(--glass);display:grid;place-items:center;font-family:'Unbounded',sans-serif;font-size:9.5px;font-weight:700;color:#fff;flex:0 0 auto}
+.value-card p{margin:0;color:var(--muted);font-size:clamp(13.5px,3.2vw,14.5px);line-height:1.6}
 
 /* disciplines */
 .disc{margin-top:clamp(28px,5vw,46px);display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -224,7 +205,7 @@ h2.caps{font-weight:600}
 .card:hover .ico svg{stroke:#08080a}
 .card h3{margin:0 0 10px;font-size:clamp(16px,3.8vw,19px);font-weight:500;letter-spacing:-.015em}
 .card p{margin:0;color:var(--muted);font-size:clamp(13.5px,3.3vw,14.5px);line-height:1.6}
-.card .tag{display:inline-block;margin-top:18px;font-size:11.5px;color:var(--dim);padding:4px 11px;border-radius:99px;border:1px solid var(--line-2)}
+.card .tag{display:inline-block;margin-top:18px;font-size:11.5px;letter-spacing:.08em;color:var(--dim);padding:4px 11px;border-radius:99px;border:1px solid var(--line-2)}
 
 /* tabs */
 .tabs{position:relative;display:flex;gap:4px;margin:clamp(26px,5vw,42px) 0 8px;padding:5px;border-radius:99px;border:1px solid var(--line);background:var(--glass);width:max-content;max-width:100%;overflow:hidden}
@@ -250,7 +231,8 @@ h2.caps{font-weight:600}
 .svc.open .svc-wrap{grid-template-rows:1fr}
 .svc-inner{overflow:hidden}
 .svc-body{padding:0 clamp(18px,3.6vw,26px) clamp(20px,3.6vw,28px)}
-.svc-body .hint{color:var(--muted);font-size:clamp(13px,3.2vw,14.5px);margin:0 0 18px;padding-top:4px;border-top:1px solid var(--line-2)}
+.svc-body .hint{color:var(--muted);font-size:clamp(13px,3.2vw,14.5px);margin:0 0 20px;padding-top:16px;border-top:1px solid var(--line-2)}
+.svc-label{display:block;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);font-weight:600;margin:0 0 8px}
 .svc-body ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 24px}
 .svc-body li{padding:8px 0 8px 24px;position:relative;font-size:clamp(13.5px,3.2vw,14.5px);color:var(--txt)}
 .svc-body li::before{content:"";position:absolute;left:0;top:14px;width:13px;height:7px;border-left:1.5px solid #fff;border-bottom:1.5px solid #fff;transform:rotate(-45deg)}
@@ -258,19 +240,24 @@ h2.caps{font-weight:600}
 .price{font-size:13px;color:var(--dim)}
 .badge{display:inline-block;margin-left:10px;font-size:10.5px;font-weight:600;letter-spacing:.08em;padding:4px 9px;border-radius:99px;background:var(--chrome);color:#08080a;vertical-align:middle;white-space:nowrap}
 .faq-body p{margin:0;padding-top:16px;border-top:1px solid var(--line-2);color:var(--muted);font-size:clamp(13.5px,3.2vw,15px);line-height:1.65}
+.svc-note{margin:24px 0 0;max-width:60ch;font-size:14px;color:var(--muted)}
+.svc-note a{color:#fff;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:1px;transition:.3s}
+.svc-note a:hover{border-color:#fff}
 
 /* work */
 .work-card{margin-top:clamp(28px,5vw,46px);border-radius:clamp(20px,4vw,28px);border:1px solid var(--line);padding:clamp(22px,4.4vw,48px);position:relative;overflow:hidden;
   background:linear-gradient(150deg,rgba(255,255,255,.10),rgba(255,255,255,.02) 50%,rgba(255,255,255,.06))}
 .work-card::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;top:-180px;right:-140px;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 65%);pointer-events:none}
-.work-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,320px);gap:clamp(24px,4vw,48px);position:relative}
+.work-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:clamp(24px,4vw,48px);position:relative}
+.work-cat{display:inline-block;margin-bottom:16px;font-size:11.5px;letter-spacing:.12em;color:var(--dim);padding:5px 12px;border-radius:99px;border:1px solid var(--line-2)}
 .work-in h3{margin:0 0 14px;font-size:clamp(19px,4.6vw,30px);font-weight:500;letter-spacing:-.025em}
 .work-in p{margin:0 0 26px;color:var(--muted);font-size:clamp(14px,3.4vw,16px);max-width:54ch}
-.figs{display:grid;gap:12px;align-content:start}
-.fig{display:flex;align-items:baseline;gap:14px;padding:14px 18px;border-radius:var(--radius-sm);border:1px solid var(--line-2);background:rgba(0,0,0,.28);transition:.4s var(--ease)}
-.fig:hover{transform:translateX(-6px);border-color:var(--line)}
-.fig b{font-family:'Unbounded',sans-serif;font-size:clamp(18px,4.4vw,26px);font-weight:600;letter-spacing:-.03em;flex:0 0 auto}
-.fig span{font-size:12.5px;color:var(--dim);line-height:1.35}
+.impl{align-self:start;padding:clamp(18px,3.4vw,24px);border-radius:var(--radius-sm);border:1px solid var(--line-2);background:rgba(0,0,0,.28)}
+.impl .svc-label{margin-bottom:10px}
+.impl ul{list-style:none;margin:0;padding:0}
+.impl li{padding:8px 0 8px 24px;position:relative;font-size:clamp(13.5px,3.2vw,14.5px);border-bottom:1px solid var(--line-2)}
+.impl li:last-child{border-bottom:0}
+.impl li::before{content:"";position:absolute;left:0;top:14px;width:13px;height:7px;border-left:1.5px solid #fff;border-bottom:1.5px solid #fff;transform:rotate(-45deg)}
 
 /* quote */
 .quote-box{margin-top:clamp(26px,5vw,44px);padding:clamp(24px,4.6vw,48px);border-radius:clamp(20px,4vw,28px);border:1px solid var(--line);background:var(--ink-grad);position:relative;overflow:hidden}
@@ -289,6 +276,7 @@ blockquote{margin:0;font-size:clamp(16px,4.1vw,25px);font-weight:400;line-height
   background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,.05));-webkit-background-clip:text;background-clip:text;color:transparent}
 .step h3{margin:14px 0 9px;font-size:clamp(15px,3.7vw,18px);font-weight:500}
 .step p{margin:0;color:var(--muted);font-size:clamp(13.5px,3.2vw,14.5px);line-height:1.58}
+.steps-note{margin:24px 0 0;max-width:62ch;font-size:14px;color:var(--muted)}
 
 /* contact */
 .contact-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(26px,5vw,60px);margin-top:clamp(26px,5vw,44px);align-items:start}
@@ -306,7 +294,7 @@ form{padding:clamp(20px,4vw,34px);border-radius:clamp(20px,4vw,26px);border:1px 
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{position:relative;overflow:hidden;border-radius:99px}
 .chip input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
-.chip span{display:block;padding:10px 16px;border-radius:99px;border:1px solid var(--line);font-size:clamp(12.5px,3.1vw,13.5px);color:var(--muted);transition:.35s var(--ease);white-space:nowrap}
+.chip span{display:block;padding:10px 16px;border-radius:99px;border:1px solid var(--line);font-size:clamp(12.5px,3.1vw,13.5px);color:var(--muted);transition:.35s var(--ease)}
 .chip input:checked + span{background:var(--steel);color:#08080a;border-color:transparent;font-weight:600;box-shadow:0 6px 20px rgba(255,255,255,.2);transform:translateY(-1px)}
 .chip input:focus-visible + span{outline:2px solid #fff;outline-offset:2px}
 .inp{width:100%;font-family:inherit;font-size:16px;color:var(--txt);background:rgba(255,255,255,.03);border:1px solid var(--line-2);border-radius:14px;padding:14px 16px;transition:.35s var(--ease);resize:vertical}
@@ -316,7 +304,7 @@ form{padding:clamp(20px,4vw,34px);border-radius:clamp(20px,4vw,26px);border:1px 
 @keyframes shake{25%{transform:translateX(-6px)}50%{transform:translateX(6px)}75%{transform:translateX(-3px)}}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .form-foot{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
-.form-note{font-size:12px;color:var(--dim);flex:1 1 200px;min-width:0;line-height:1.5}
+.form-note{font-size:12px;color:var(--dim);flex:1 1 220px;min-width:0;line-height:1.5}
 
 /* modal */
 .modal{position:fixed;inset:0;z-index:100;display:none;place-items:center;padding:20px;background:rgba(4,4,6,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
@@ -335,18 +323,21 @@ form{padding:clamp(20px,4vw,34px);border-radius:clamp(20px,4vw,26px);border:1px 
 /* final */
 .final-box{border-radius:clamp(22px,4.6vw,34px);border:1px solid var(--line);padding:clamp(28px,6vw,72px) clamp(22px,5vw,56px);text-align:center;position:relative;overflow:hidden;
   background:radial-gradient(120% 140% at 50% -20%,rgba(255,255,255,.16),rgba(255,255,255,.02) 55%,rgba(255,255,255,0))}
-.final-box h2{max-width:18ch;margin:0 auto}
-.final-box p{color:var(--muted);max-width:46ch;margin:20px auto 30px;font-size:clamp(14px,3.4vw,16.5px)}
+.final-box h2{max-width:20ch;margin:0 auto}
+.final-box p{color:var(--muted);max-width:48ch;margin:20px auto 30px;font-size:clamp(14px,3.4vw,16.5px)}
+.final-box p.fine{margin:18px auto 0;font-size:13px;color:var(--dim)}
 .final-box .btn{margin:0 auto}
 
 /* footer */
 footer{border-top:1px solid var(--line-2);padding:34px 0 calc(40px + env(safe-area-inset-bottom,0px));margin-top:clamp(30px,6vw,60px)}
-.foot{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center}
-.foot-tag{font-size:13px;color:var(--dim);max-width:34ch;line-height:1.5}
+.foot{display:flex;flex-wrap:wrap;gap:22px;justify-content:space-between;align-items:flex-start}
+.foot-brand{max-width:44ch}
+.foot-desc{margin:14px 0 0;font-size:13px;color:var(--dim);line-height:1.55}
+.foot-tag{font-size:13px;color:var(--muted);max-width:34ch;line-height:1.55;margin:0;text-align:right}
 .foot-nav{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--muted)}
 .foot-nav a:hover{color:#fff}
 .foot small{font-size:12.5px;color:var(--dim)}
-.foot-row{width:100%;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:20px;padding-top:20px;border-top:1px solid var(--line-2)}
+.foot-row{width:100%;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:8px;padding-top:20px;border-top:1px solid var(--line-2)}
 
 /* ===================== RESPONSIVE ===================== */
 @media (max-width:1040px){
@@ -357,12 +348,10 @@ footer{border-top:1px solid var(--line-2);padding:34px 0 calc(40px + env(safe-ar
   .work-in{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr}
   .value-grid{grid-template-columns:1fr}
-  .price-wrap{grid-template-columns:1fr}
 }
 @media (max-width:860px){
   .nav{display:none}
   .burger{display:grid}
-  .stats{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:600px){
   .grid-lines{background-size:calc(100% / 3) 100%}
@@ -378,10 +367,9 @@ footer{border-top:1px solid var(--line-2);padding:34px 0 calc(40px + env(safe-ar
   .form-foot .btn{width:100%}
   .form-note{flex:1 1 100%;text-align:center}
   .tabs{width:100%;justify-content:stretch}
-  .tab{flex:1 1 0;padding:11px 8px}
+  .tab{flex:1 1 0;padding:11px 8px;white-space:normal;line-height:1.25}
   .quote-box .qm{font-size:110px;top:-18px}
-  .fig{flex-wrap:wrap;gap:4px 12px}
-  .price-row{flex-wrap:wrap}
+  .foot-tag{text-align:left}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
@@ -425,14 +413,16 @@ footer{border-top:1px solid var(--line-2);padding:34px 0 calc(40px + env(safe-ar
     <div class="wrap">
       <div class="hero-grid">
         <div>
-          <span class="pill"><b aria-hidden="true"></b>Принимаем проекты на ближайшую неделю</span>
-          <h1>Вы растите бизнес. <span class="grad-txt">SYNAPSE</span> собирает вокруг него систему.</h1>
-          <p class="lead">Сайт, Telegram-бот и Mini App работают на одну задачу и одну базу заявок — а не как три разных подрядчика. Срок и стоимость фиксируем до старта, без доплат по ходу проекта.</p>
+          <span class="pill"><b aria-hidden="true"></b>Работаем с проектами на ноябрь</span>
+          <div class="hero-label">WEB DEVELOPMENT · SALES FUNNELS · AUTOMATION</div>
+          <h1>Сайт, воронка и автоматизация. <span class="grad-txt">В одной системе.</span></h1>
+          <p class="lead">Проектируем цифровые решения для сервисного бизнеса: создаём сайты, выстраиваем путь клиента до заявки и автоматизируем её обработку.</p>
+          <p class="lead">Объединяем веб-разработку, CRM и Telegram-инструменты в единую систему, адаптированную под задачи вашего бизнеса.</p>
           <div class="hero-cta">
-            <a href="#contact" class="btn">Получить расчёт</a>
+            <a href="#contact" class="btn">Обсудить проект</a>
             <a href="#work" class="btn btn-ghost">Смотреть работы</a>
           </div>
-          <p class="hero-note">Ответ в Telegram · план и ориентир по стоимости в течение пары часов</p>
+          <p class="hero-note">Без обязательных созвонов. Сначала разбираемся в задаче, затем предлагаем формат реализации, сроки и стоимость.</p>
         </div>
         <div class="hero-art">
           <svg class="synapse" viewBox="0 0 460 380" role="img" aria-label="Схема связанных узлов — метафора единой системы">
@@ -447,73 +437,37 @@ footer{border-top:1px solid var(--line-2);padding:34px 0 calc(40px + env(safe-ar
 
       <div class="ticker" aria-hidden="true">
         <div class="tk-track">
-          <span>ФИКС ЦЕНЫ ДО СТАРТА</span><span>ЗАПУСК ОТ 3 ДНЕЙ</span><span>КОМАНДНАЯ РАБОТА</span><span>90 ДНЕЙ ПОДДЕРЖКИ</span>
-          <span>ФИКС ЦЕНЫ ДО СТАРТА</span><span>ЗАПУСК ОТ 3 ДНЕЙ</span><span>КОМАНДНАЯ РАБОТА</span><span>90 ДНЕЙ ПОДДЕРЖКИ</span>
+          <span>ФИКСИРУЕМ ОБЪЁМ РАБОТ ДО СТАРТА</span><span>ПРОЗРАЧНАЯ СТОИМОСТЬ ПРОЕКТА</span><span>РАЗРАБОТКА ПОД ЗАДАЧИ БИЗНЕСА</span><span>ПРОВЕРКА ПЕРЕД ЗАПУСКОМ</span><span>ПОДДЕРЖКА ПОСЛЕ СДАЧИ ПО СОГЛАСОВАННЫМ УСЛОВИЯМ</span>
+          <span>ФИКСИРУЕМ ОБЪЁМ РАБОТ ДО СТАРТА</span><span>ПРОЗРАЧНАЯ СТОИМОСТЬ ПРОЕКТА</span><span>РАЗРАБОТКА ПОД ЗАДАЧИ БИЗНЕСА</span><span>ПРОВЕРКА ПЕРЕД ЗАПУСКОМ</span><span>ПОДДЕРЖКА ПОСЛЕ СДАЧИ ПО СОГЛАСОВАННЫМ УСЛОВИЯМ</span>
         </div>
-      </div>
-
-      <div class="stats rv">
-        <div class="stat tilt"><b data-count="3" data-prefix="1–">3–4 дня</b><span>средний срок запуска проекта</span></div>
-        <div class="stat tilt"><b data-count="40" data-suffix="%">до 25%</b><span>конверсия выстроенных воронок</span></div>
-        <div class="stat tilt"><b data-count="90" data-suffix=" дней">90 дней</b><span>поддержка после сдачи, бесплатно</span></div>
-        <div class="stat tilt"><b>24/7</b><span>системы продают, пока вы спите</span></div>
       </div>
     </div>
   </div>
 
-  <!-- VALUE + PRICING -->
+  <!-- VALUE -->
   <section id="value">
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow">За что вы платите</span>
-        <h2 class="caps">Вы получаете систему. <span class="grad-txt">а не набор файлов.</span></h2>
-        <p class="sec-intro">Каждый экран объясняет продукт, укрепляет доверие и ведёт человека к заявке — сайт, бот и реклама действуют заодно, а не порознь.</p>
+        <h2 class="caps wide">Вы получаете не набор инструментов. <span class="grad-txt">Вы получаете связанную систему.</span></h2>
+        <p class="sec-intro">Сайт, форма заявки, CRM и Telegram должны работать согласованно. Мы проектируем каждый элемент с учётом того, как потенциальный клиент знакомится с компанией, оставляет обращение и переходит к следующему этапу взаимодействия.</p>
       </div>
 
       <div class="value-grid">
         <div class="value-card rv">
           <div class="vn">01</div>
-          <h3>Сайт, который объясняет и продаёт</h3>
-          <p>За несколько секунд понятно, что вы предлагаете, почему вам можно доверять и куда нажать, чтобы купить.</p>
-          <div class="value-quote">Понятный маршрут от первого экрана до заявки.</div>
+          <h3>Путь от посетителя до заявки</h3>
+          <p>Продумываем структуру сайта, содержание страниц и точки взаимодействия так, чтобы посетителю было понятно, что предлагает компания и как оставить обращение.</p>
         </div>
         <div class="value-card rv">
           <div class="vn">02</div>
-          <h3>Telegram-экосистема без хаоса</h3>
-          <p>Сайт, бот и Mini App пишут заявки в одну базу — ничего не теряется между каналами и менеджерами.</p>
-          <div class="value-quote">Одна точка входа для клиента, один источник правды для вас.</div>
+          <h3>Единая обработка обращений</h3>
+          <p>Настраиваем передачу заявок в CRM, Telegram или другие согласованные инструменты. Помогаем организовать учёт обращений и дальнейшую работу с ними.</p>
         </div>
         <div class="value-card rv">
           <div class="vn">03</div>
-          <h3>Разработка без сюрпризов</h3>
-          <p>Объём работ и стоимость фиксируем до старта. Если задача не меняется — не меняется и смета.</p>
-          <div class="value-quote">Сроки и цена оговорены на берегу, а не по ходу проекта.</div>
-        </div>
-      </div>
-
-      <div class="price-wrap">
-        <div class="price-rows rv">
-          <div class="price-row"><span class="pn">01</span><span class="pname">Сайты и лендинги</span><span class="ptag">цена индивидуально</span></div>
-          <div class="price-row"><span class="pn">02</span><span class="pname">Telegram-боты</span><span class="ptag">цена индивидуально</span></div>
-          <div class="price-row"><span class="pn">03</span><span class="pname">Telegram Mini Apps</span><span class="ptag">цена индивидуально</span></div>
-          <div class="price-row"><span class="pn">04</span><span class="pname">Поддержка и развитие</span><span class="ptag">цена индивидуально</span></div>
-        </div>
-        <div class="price-callout rv">
-          <span class="pc-label">Расчёт проекта</span>
-          <span class="pc-big">Бесплатно</span>
-          <p>Обсудим задачу в Telegram и пришлём план, срок и фиксированную стоимость — обычно в течение нескольких часов.</p>
-        </div>
-      </div>
-
-      <div class="stack-strip rv">
-        <div class="stack-label">Основа проекта</div>
-        <div class="stack-row">
-          <span class="stack-badge"><i>Fi</i>Figma</span>
-          <span class="stack-badge"><i>TG</i>Telegram Bot API</span>
-          <span class="stack-badge"><i>JS</i>Node.js</span>
-          <span class="stack-badge"><i>PG</i>PostgreSQL</span>
-          <span class="stack-badge"><i>GA</i>Google Analytics</span>
-          <span class="stack-badge"><i>YM</i>Яндекс Метрика</span>
+          <h3>Разработка без неприятных сюрпризов</h3>
+          <p>До старта согласовываем состав проекта, сроки, стоимость и этапы. Изменения, выходящие за рамки первоначальной задачи, предварительно обсуждаем.</p>
         </div>
       </div>
     </div>
@@ -524,49 +478,38 @@ footer{border-top:1px solid var(--line-2);padding:34px 0 calc(40px + env(safe-ar
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow">Подход</span>
-        <h2 class="caps">Мы не делаем сайты ради сайтов.</h2>
-        <p class="sec-intro">Каждое решение начинается с задачи бизнеса: откуда приходят люди, где они теряются и что должно произойти, чтобы они купили.</p>
+        <h2 class="caps">Мы не разрабатываем сайты ради сайтов.</h2>
+        <p class="sec-intro">Каждый проект начинаем с бизнес-задачи. Разбираемся, как компания привлекает клиентов, что происходит после первого обращения и какие инструменты помогут сделать этот процесс понятнее и удобнее.</p>
       </div>
       <div class="rows">
-        <div class="row rv"><div class="a">Сайт есть, но заявок с него нет</div><div class="arrow" aria-hidden="true">→</div><div class="b">Пересобираем структуру под путь клиента: сценарий, аргументы, точки конверсии.</div></div>
-        <div class="row rv"><div class="a">Разработка растягивается на месяцы</div><div class="arrow" aria-hidden="true">→</div><div class="b">Работаем короткими циклами: первая версия готова уже через день-два.</div></div>
-        <div class="row rv"><div class="a">После сдачи подрядчик пропадает</div><div class="arrow" aria-hidden="true">→</div><div class="b">90 дней остаёмся на связи и бесплатно доводим мелочи до ума.</div></div>
-        <div class="row rv"><div class="a">Сайт, бот и реклама живут отдельно</div><div class="arrow" aria-hidden="true">→</div><div class="b">Собираем каналы в одну систему с общей аналитикой и единой базой заявок.</div></div>
+        <div class="row rv"><div class="a">Сайт есть, но посетителям сложно оставить заявку.</div><div class="arrow" aria-hidden="true">→</div><div class="b">Пересматриваем структуру страниц, содержание, расположение форм и путь пользователя до обращения.</div></div>
+        <div class="row rv"><div class="a">Заявки приходят из разных каналов и теряются.</div><div class="arrow" aria-hidden="true">→</div><div class="b">Связываем формы сайта, Telegram и CRM в единый процесс обработки обращений.</div></div>
+        <div class="row rv"><div class="a">Сотрудники вручную выполняют одни и те же действия.</div><div class="arrow" aria-hidden="true">→</div><div class="b">Автоматизируем повторяющиеся операции, уведомления, передачу информации и другие согласованные процессы.</div></div>
+        <div class="row rv"><div class="a">Нужно запустить новый продукт или направление.</div><div class="arrow" aria-hidden="true">→</div><div class="b">Разрабатываем посадочную страницу, продумываем предложение и настраиваем обработку поступающих заявок.</div></div>
       </div>
     </div>
   </section>
 
-  <!-- DISCIPLINES -->
+  <!-- EXPERTISE -->
   <section>
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow">Экспертиза</span>
-        <h2 class="caps">Шесть направлений. <span class="grad-txt">один подрядчик.</span></h2>
+        <h2 class="caps">Три направления. <span class="grad-txt">Одна бизнес-задача.</span></h2>
+        <p class="sec-intro">Объединяем веб-разработку, автоматизацию и Telegram-инструменты. Каждое направление можно заказать отдельно или объединить в одну систему под ключ.</p>
       </div>
       <div class="disc">
         <div class="card tilt rv">
           <div class="ico"><svg viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="15" rx="2"/><path d="M2.5 9h19M6 6.5h.01M8.5 6.5h.01"/></svg></div>
-          <h3>Веб-сайты</h3><p>Лендинги, корпоративные сайты и интернет-магазины под ключ: адаптивная вёрстка, скорость загрузки, техническое SEO.</p><span class="tag">Разработка</span>
+          <h3>Веб-разработка</h3><p>Лендинги, корпоративные сайты и редизайн существующих проектов. Создаём структуру, адаптивные страницы и функциональность под конкретные задачи бизнеса.</p><span class="tag">DEVELOPMENT</span>
         </div>
         <div class="card tilt rv">
-          <div class="ico"><svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M9.5 7.5l5 2.5-5 2.5"/></svg></div>
-          <h3>Telegram Mini Apps</h3><p>Мини-приложения с каталогом, оплатой и личным кабинетом прямо внутри Telegram, с собственным backend.</p><span class="tag">Telegram</span>
+          <div class="ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="12" r="2.5"/><circle cx="6" cy="18" r="2.5"/><path d="M8.2 7.2l7.6 3.6M8.2 16.8l7.6-3.6"/></svg></div>
+          <h3>CRM и автоматизация</h3><p>Связываем инструменты компании между собой: настраиваем передачу обращений, уведомления, обработку заявок и повторяющиеся бизнес-процессы.</p><span class="tag">AUTOMATION</span>
         </div>
         <div class="card tilt rv">
           <div class="ico"><svg viewBox="0 0 24 24"><path d="M21 4L2.5 11l6 2.3L18 7l-7 8.5.5 5L14 17"/></svg></div>
-          <h3>Telegram-боты</h3><p>Боты для продаж и поддержки: квалификация заявок, прогрев, автоответы и передача горячих лидов менеджеру.</p><span class="tag">Автоматизация</span>
-        </div>
-        <div class="card tilt rv">
-          <div class="ico"><svg viewBox="0 0 24 24"><rect x="2.5" y="3.5" width="19" height="17" rx="2"/><path d="M9 3.5v17M2.5 11H9"/></svg></div>
-          <h3>UI/UX-дизайн</h3><p>Интерфейсы, которые понятны с первого экрана: исследование аудитории, прототипы, финальные макеты в Figma.</p><span class="tag">Дизайн</span>
-        </div>
-        <div class="card tilt rv">
-          <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3c3 3.5 3 14 0 18M3.2 9.5h17.6M3.2 14.5h17.6"/></svg></div>
-          <h3>Брендинг</h3><p>Логотип, палитра, типографика и правила применения — фирменный стиль, который работает и в вебе, и в печати.</p><span class="tag">Идентичность</span>
-        </div>
-        <div class="card tilt rv">
-          <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 4h18l-7 8v7l-4 2v-9z"/></svg></div>
-          <h3>Воронки продаж</h3><p>Система, где каждый шаг ведёт к покупке: автопрогрев, дожим, реактивация базы и понятная аналитика.</p><span class="tag">Маркетинг</span>
+          <h3>Telegram-разработка</h3><p>Разрабатываем Telegram-ботов и Mini Apps для приёма заявок, взаимодействия с клиентами, каталогов, личных кабинетов и автоматизации.</p><span class="tag">TELEGRAM</span>
         </div>
       </div>
     </div>
@@ -577,111 +520,89 @@ footer{border-top:1px solid var(--line-2);padding:34px 0 calc(40px + env(safe-ar
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow">Услуги</span>
-        <h2 class="caps">Форматы работы. <span class="grad-txt">что входит.</span></h2>
-        <p class="sec-intro">Стоимость считаем индивидуально — она зависит от объёма, интеграций и сроков. Оценку присылаем в течение нескольких часов после описания задачи.</p>
+        <h2 class="caps">Форматы работы. <span class="grad-txt">Что входит.</span></h2>
+        <p class="sec-intro">Вы можете заказать как комплексную систему под ключ, так и отдельное решение для конкретной задачи.</p>
+        <p class="sec-intro">Состав, стоимость и сроки определяем после изучения проекта и фиксируем до начала работ.</p>
       </div>
 
       <div class="tabs rv" role="tablist" aria-label="Категории услуг">
         <span class="tab-pill" id="pill" aria-hidden="true"></span>
-        <button class="tab" id="tab-dev" role="tab" aria-selected="true" aria-controls="panel-dev">Разработка</button>
-        <button class="tab" id="tab-des" role="tab" aria-selected="false" aria-controls="panel-des">Дизайн и бренд</button>
+        <button class="tab" id="tab-main" role="tab" aria-selected="true" aria-controls="panel-main">Основное решение</button>
+        <button class="tab" id="tab-solo" role="tab" aria-selected="false" aria-controls="panel-solo">Отдельные услуги</button>
       </div>
 
-      <div id="panel-dev" class="acc-group" role="tabpanel" aria-labelledby="tab-dev">
-        <div class="svc rv">
-          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Лендинг</span><span class="svc-desc">Одностраничный сайт под один продукт или оффер.</span></span><span class="svc-sign" aria-hidden="true"></span></button>
+      <div id="panel-main" class="acc-group" role="tabpanel" aria-labelledby="tab-main">
+        <div class="svc open rv">
+          <button class="svc-btn" aria-expanded="true"><span><span class="svc-name">Воронка продаж под ключ<span class="badge">ФЛАГМАН</span></span><span class="svc-desc">Связанная система привлечения и обработки обращений: от первого посещения сайта до передачи заявки в CRM и дальнейшей работы с клиентом.</span></span><span class="svc-sign" aria-hidden="true"></span></button>
           <div class="svc-wrap"><div class="svc-inner"><div class="svc-body">
-            <p class="hint">Подходит, когда нужно быстро проверить спрос или запустить рекламу на конкретное предложение.</p>
-            <ul><li>Структура под путь клиента</li><li>Адаптив под мобильные</li><li>Продающие тексты</li><li>Техническое SEO</li><li>Форма заявки и уведомления</li><li>Подключение аналитики</li></ul>
-            <div class="svc-foot"><a class="btn btn-sm" href="#contact">Обсудить лендинг</a><span class="price">Цена — индивидуально</span></div>
-          </div></div></div>
-        </div>
-        <div class="svc rv">
-          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Корпоративный сайт</span><span class="svc-desc">Многостраничный сайт компании с системой управления.</span></span><span class="svc-sign" aria-hidden="true"></span></button>
-          <div class="svc-wrap"><div class="svc-inner"><div class="svc-body">
-            <p class="hint">Когда нужно показать компанию целиком: услуги, команду, кейсы и контакты.</p>
-            <ul><li>До 5 страниц</li><li>CMS для самостоятельных правок</li><li>Каталог услуг и кейсов</li><li>Аналитика и метрики</li><li>Поддержка 90 дней</li><li>Обучение работе с сайтом</li></ul>
-            <div class="svc-foot"><a class="btn btn-sm" href="#contact">Обсудить сайт</a><span class="price">Цена — индивидуально</span></div>
-          </div></div></div>
-        </div>
-        <div class="svc rv">
-          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Telegram Mini App<span class="badge">Чаще всего берут</span></span><span class="svc-desc">Приложение с каталогом, оплатой и CRM внутри Telegram.</span></span><span class="svc-sign" aria-hidden="true"></span></button>
-          <div class="svc-wrap"><div class="svc-inner"><div class="svc-body">
-            <p class="hint">Клиент покупает, не выходя из мессенджера: меньше шагов — выше конверсия.</p>
-            <ul><li>Полная интеграция с Bot API</li><li>Приём платежей</li><li>База данных и backend</li><li>Админка для заказов</li><li>Личный кабинет пользователя</li><li>Приоритетная поддержка</li></ul>
-            <div class="svc-foot"><a class="btn btn-sm" href="#contact">Обсудить приложение</a><span class="price">Цена — индивидуально</span></div>
-          </div></div></div>
-        </div>
-        <div class="svc rv">
-          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Telegram-бот</span><span class="svc-desc">Автоматизация продаж, поддержки и рутинных процессов.</span></span><span class="svc-sign" aria-hidden="true"></span></button>
-          <div class="svc-wrap"><div class="svc-inner"><div class="svc-body">
-            <p class="hint">Бот отвечает мгновенно, квалифицирует заявки и передаёт менеджеру только готовых к разговору.</p>
-            <ul><li>Квалификация лидов</li><li>Автоответы и прогрев</li><li>Рассылки по сегментам</li><li>Интеграция с сайтом и CRM</li><li>Уведомления менеджерам</li><li>Статистика диалогов</li></ul>
-            <div class="svc-foot"><a class="btn btn-sm" href="#contact">Обсудить бота</a><span class="price">Цена — индивидуально</span></div>
-          </div></div></div>
-        </div>
-        <div class="svc rv">
-          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Интернет-магазин</span><span class="svc-desc">Каталог, корзина и онлайн-оплата на своём сайте.</span></span><span class="svc-sign" aria-hidden="true"></span></button>
-          <div class="svc-wrap"><div class="svc-inner"><div class="svc-body">
-            <p class="hint">Для тех, кто продаёт много позиций и хочет управлять ассортиментом сам.</p>
-            <ul><li>Каталог и фильтры</li><li>Корзина и онлайн-оплата</li><li>Личный кабинет покупателя</li><li>Интеграция с CRM и складом</li><li>Промокоды и акции</li><li>Отчёты по продажам</li></ul>
-            <div class="svc-foot"><a class="btn btn-sm" href="#contact">Обсудить магазин</a><span class="price">Цена — индивидуально</span></div>
-          </div></div></div>
-        </div>
-        <div class="svc rv">
-          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Экосистема под ключ<span class="badge">Флагман</span></span><span class="svc-desc">Сайт, Mini App и бот работают как единая система.</span></span><span class="svc-sign" aria-hidden="true"></span></button>
-          <div class="svc-wrap"><div class="svc-inner"><div class="svc-body">
-            <p class="hint">Все каналы собраны вместе: заявка не теряется, а вы видите путь клиента целиком.</p>
-            <ul><li>Сайт и Telegram Mini App</li><li>Бот и автоворонка</li><li>Единая база заявок</li><li>Сквозная аналитика</li><li>Обучение команды</li><li>Поддержка 90 дней</li></ul>
-            <div class="svc-foot"><a class="btn btn-sm" href="#contact">Обсудить экосистему</a><span class="price">Цена — индивидуально</span></div>
+            <p class="hint"><span class="svc-label">Когда подходит</span>Когда у компании есть услуга или продукт, но сайт, формы, каналы коммуникации и обработка обращений работают разрозненно.</p>
+            <span class="svc-label">Что входит</span>
+            <ul><li>Анализ текущего пути клиента</li><li>Проработка структуры и логики страниц</li><li>Разработка сайта или посадочной страницы</li><li>Подготовка содержания и текстов</li><li>Формы сбора заявок</li><li>Интеграция с CRM</li><li>Уведомления о новых обращениях</li><li>Подключение согласованной аналитики</li><li>Проверка и запуск системы</li><li>Передача проекта и инструкции по работе</li></ul>
+            <div class="svc-foot"><a class="btn btn-sm" href="#contact">Обсудить воронку</a><span class="price">Индивидуальный расчёт</span></div>
           </div></div></div>
         </div>
       </div>
 
-      <div id="panel-des" class="acc-group" role="tabpanel" aria-labelledby="tab-des" hidden>
+      <div id="panel-solo" class="acc-group" role="tabpanel" aria-labelledby="tab-solo" hidden>
         <div class="svc rv">
-          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">UI/UX-дизайн сайта</span><span class="svc-desc">Макет в Figma с продуманной структурой и логикой экранов.</span></span><span class="svc-sign" aria-hidden="true"></span></button>
+          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Сайты и лендинги</span><span class="svc-desc">Разрабатываем сайты, которые понятно представляют компанию, её услуги и помогают посетителям сделать следующий шаг.</span></span><span class="svc-sign" aria-hidden="true"></span></button>
           <div class="svc-wrap"><div class="svc-inner"><div class="svc-body">
-            <p class="hint">Когда есть разработчики, но нужен сильный дизайн и понятная логика интерфейса.</p>
-            <ul><li>Исследование аудитории</li><li>Структура и прототипы</li><li>Финальные макеты в Figma</li><li>Мобильная версия</li><li>UI-кит и компоненты</li><li>Передача разработчикам</li></ul>
-            <div class="svc-foot"><a class="btn btn-sm" href="#contact">Обсудить дизайн</a><span class="price">Цена — индивидуально</span></div>
+            <p class="hint"><span class="svc-label">Когда подходит</span>Когда нужно представить услугу или компанию в интернете, запустить новое предложение или обновить существующий сайт.</p>
+            <span class="svc-label">Что входит</span>
+            <ul><li>Разработка структуры страниц</li><li>Проектирование пользовательского пути</li><li>Дизайн интерфейса</li><li>Адаптивная разработка</li><li>Подготовка и размещение текстов</li><li>Формы обратной связи</li><li>Подключение аналитики</li><li>Базовая техническая SEO-подготовка</li><li>Тестирование и запуск</li></ul>
+            <div class="svc-foot"><a class="btn btn-sm" href="#contact">Обсудить разработку</a><span class="price">Индивидуальный расчёт</span></div>
           </div></div></div>
         </div>
         <div class="svc rv">
-          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Брендинг<span class="badge">Чаще всего берут</span></span><span class="svc-desc">Логотип, палитра, типографика и правила применения.</span></span><span class="svc-sign" aria-hidden="true"></span></button>
+          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Автоматизация бизнеса</span><span class="svc-desc">Соединяем инструменты компании и автоматизируем повторяющиеся операции, чтобы обращения, информация и задачи не терялись между разными системами.</span></span><span class="svc-sign" aria-hidden="true"></span></button>
           <div class="svc-wrap"><div class="svc-inner"><div class="svc-body">
-            <p class="hint">Фирменный стиль, который одинаково уверенно работает на сайте, в соцсетях и на документах.</p>
-            <ul><li>Логотип в трёх вариантах</li><li>Цветовая палитра</li><li>Типографика</li><li>Брендбук с правилами</li><li>Шаблоны для соцсетей</li><li>Исходники в векторе</li></ul>
-            <div class="svc-foot"><a class="btn btn-sm" href="#contact">Обсудить брендинг</a><span class="price">Цена — индивидуально</span></div>
+            <p class="hint"><span class="svc-label">Когда подходит</span>Когда сотрудники вручную переносят данные, обрабатывают обращения или используют несколько несвязанных инструментов.</p>
+            <span class="svc-label">Что входит</span>
+            <ul><li>Анализ текущих процессов</li><li>Настройка CRM</li><li>Интеграция форм и каналов обращений</li><li>Уведомления и автоматические действия</li><li>Настройка этапов обработки заявок</li><li>Интеграции с Telegram и другими сервисами</li><li>Тестирование сценариев</li><li>Инструкции для сотрудников</li></ul>
+            <div class="svc-foot"><a class="btn btn-sm" href="#contact">Обсудить автоматизацию</a><span class="price">Индивидуальный расчёт</span></div>
           </div></div></div>
         </div>
         <div class="svc rv">
-          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Редизайн</span><span class="svc-desc">Обновление существующего сайта без потери позиций.</span></span><span class="svc-sign" aria-hidden="true"></span></button>
+          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Telegram-боты и Mini Apps</span><span class="svc-desc">Создаём инструменты внутри Telegram для взаимодействия с клиентами, приёма обращений, работы с каталогами и автоматизации процессов.</span></span><span class="svc-sign" aria-hidden="true"></span></button>
           <div class="svc-wrap"><div class="svc-inner"><div class="svc-body">
-            <p class="hint">Сохраняем то, что работает, и переделываем то, что мешает продавать.</p>
-            <ul><li>Аудит текущего сайта</li><li>Новая структура и дизайн</li><li>Адаптация под мобильные</li><li>Перенос контента</li><li>Сохранение SEO-позиций</li><li>Ускорение загрузки</li></ul>
-            <div class="svc-foot"><a class="btn btn-sm" href="#contact">Обсудить редизайн</a><span class="price">Цена — индивидуально</span></div>
+            <p class="hint"><span class="svc-label">Когда подходит</span>Когда Telegram является одним из основных каналов общения с клиентами или компании нужен отдельный цифровой инструмент внутри мессенджера.</p>
+            <span class="svc-label">Что входит</span>
+            <ul><li>Проектирование логики бота</li><li>Разработка сценариев взаимодействия</li><li>Приём и обработка заявок</li><li>Интеграция с CRM и внешними сервисами</li><li>Работа с базой данных</li><li>Разработка Mini App</li><li>Административные функции</li><li>Тестирование и запуск</li></ul>
+            <div class="svc-foot"><a class="btn btn-sm" href="#contact">Обсудить Telegram-проект</a><span class="price">Индивидуальный расчёт</span></div>
           </div></div></div>
         </div>
       </div>
+
+      <p class="svc-note">Не нашли подходящий формат? <a href="#contact">Опишите задачу</a> — рассмотрим индивидуальный вариант реализации.</p>
     </div>
   </section>
 
   <!-- WORK -->
   <section id="work">
     <div class="wrap">
-      <div class="sec-head rv"><span class="eyebrow">Работы</span><h2 class="caps">Что уже запущено.</h2></div>
+      <div class="sec-head rv">
+        <span class="eyebrow">Портфолио</span>
+        <h2 class="caps">Решения, которые уже работают.</h2>
+        <p class="sec-intro">Показываем реализованные проекты, технические решения и задачи, которые удалось решить в процессе разработки.</p>
+      </div>
       <div class="work-card rv">
         <div class="work-in">
           <div>
-            <h3>Бизнес-бот для продаж</h3>
-            <p>Telegram-бот квалифицирует входящие обращения, прогревает аудиторию сообщениями по сценарию и доводит до покупки без участия менеджера. Сложный функционал собран и протестирован за три дня, после сдачи работает без сбоев.</p>
+            <span class="work-cat">TELEGRAM BOT · AUTOMATION</span>
+            <h3>Бизнес-бот для обработки обращений</h3>
+            <p>Telegram-бот для автоматизации первичного взаимодействия с клиентами.</p>
             <a class="btn" href="https://t.me/Rodion_gift6bot" target="_blank" rel="noopener">Открыть проект в Telegram</a>
           </div>
-          <div class="figs">
-            <div class="fig"><b>×3</b><span>рост числа заявок</span></div>
-            <div class="fig"><b>+40%</b><span>конверсия в покупку</span></div>
-            <div class="fig"><b>3 дня</b><span>от задачи до запуска</span></div>
+          <div class="impl">
+            <span class="svc-label">Что реализовано</span>
+            <ul>
+              <li>Сценарии взаимодействия с пользователями</li>
+              <li>Сбор информации об обращении</li>
+              <li>Квалификация входящих запросов</li>
+              <li>Автоматические ответы</li>
+              <li>Передача информации менеджеру</li>
+              <li>Статистика взаимодействий</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -695,7 +616,7 @@ footer{border-top:1px solid var(--line-2);padding:34px 0 calc(40px + env(safe-ar
       <div class="quote-box rv">
         <span class="qm" aria-hidden="true">”</span>
         <blockquote>«Проект был выполнен быстро: сложный функционал бота настроен всего за три дня. Вся логика и интеграции работают без сбоев, коммуникация на протяжении сотрудничества была чёткой и понятной. Полностью доволен результатом и могу смело рекомендовать как надёжного исполнителя».</blockquote>
-        <div class="who"><span class="av" aria-hidden="true">Р</span><b>Родион Олегович</b><span>Заказчик Telegram-бота</span><span>Отзыв получен в Telegram</span></div>
+        <div class="who"><span class="av" aria-hidden="true">Р</span><b>Родион Олегович</b><span>Заказчик Telegram-бота</span></div>
       </div>
     </div>
   </section>
@@ -703,36 +624,57 @@ footer{border-top:1px solid var(--line-2);padding:34px 0 calc(40px + env(safe-ar
   <!-- PROCESS -->
   <section id="process">
     <div class="wrap">
-      <div class="sec-head rv"><span class="eyebrow">Процесс</span><h2 class="caps">Четыре шага. <span class="grad-txt">без сюрпризов.</span></h2></div>
-      <div class="steps">
-        <div class="step tilt rv"><div class="n">01</div><h3>Заявка и оценка</h3><p>Обсуждаем задачу в Telegram, определяем формат и фиксируем стоимость. Без давления и лишних созвонов.</p></div>
-        <div class="step tilt rv"><div class="n">02</div><h3>Дизайн</h3><p>Собираем структуру и макет в Figma. Правим до тех пор, пока результат вас не устроит.</p></div>
-        <div class="step tilt rv"><div class="n">03</div><h3>Разработка</h3><p>Верстаем, программируем, тестируем на устройствах и запускаем в оговорённый срок.</p></div>
-        <div class="step tilt rv"><div class="n">04</div><h3>Поддержка</h3><p>90 дней сопровождаем бесплатно: правки, консультации, устранение ошибок. Вы не остаётесь одни.</p></div>
+      <div class="sec-head rv">
+        <span class="eyebrow">Процесс работы</span>
+        <h2 class="caps">Четыре этапа. <span class="grad-txt">Понятный результат.</span></h2>
+        <p class="sec-intro">Работаем по согласованным этапам. Вы понимаете, что происходит с проектом, какие задачи выполняются и что будет готово на каждом этапе.</p>
       </div>
+      <div class="steps">
+        <div class="step tilt rv"><div class="n">01</div><h3>Заявка и разбор задачи</h3><p>Изучаем ваш запрос, текущий сайт и бизнес-процесс. Определяем, какое решение действительно необходимо.</p></div>
+        <div class="step tilt rv"><div class="n">02</div><h3>План и согласование</h3><p>Предлагаем структуру проекта, определяем состав работ, сроки и стоимость. После согласования фиксируем условия.</p></div>
+        <div class="step tilt rv"><div class="n">03</div><h3>Разработка и интеграция</h3><p>Готовим интерфейс, реализуем функциональность, подключаем необходимые инструменты и интеграции.</p></div>
+        <div class="step tilt rv"><div class="n">04</div><h3>Проверка и запуск</h3><p>Тестируем основные сценарии, устраняем обнаруженные ошибки, передаём проект и инструкции по работе.</p></div>
+      </div>
+      <p class="steps-note rv">Поддержка и дальнейшее развитие проекта — по условиям, согласованным до начала сотрудничества.</p>
     </div>
   </section>
 
   <!-- FAQ -->
   <section id="faq">
     <div class="wrap">
-      <div class="sec-head rv"><span class="eyebrow">Вопросы до заказа</span><h2 class="caps">Коротко. <span class="grad-txt">без воды.</span></h2></div>
+      <div class="sec-head rv"><span class="eyebrow">Вопросы до заказа</span><h2 class="caps">Коротко. <span class="grad-txt">По существу.</span></h2></div>
       <div class="acc-group">
         <div class="svc rv">
-          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Сколько занимает запуск сайта?</span></span><span class="svc-sign" aria-hidden="true"></span></button>
-          <div class="svc-wrap"><div class="svc-inner"><div class="svc-body faq-body"><p>Лендинг — 1–3 дня, корпоративный сайт или Mini App — от 5 до 10 дней в зависимости от объёма. Срок фиксируем до старта и показываем прогресс по мере готовности.</p></div></div></div>
+          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Что такое воронка продаж под ключ?</span></span><span class="svc-sign" aria-hidden="true"></span></button>
+          <div class="svc-wrap"><div class="svc-inner"><div class="svc-body faq-body"><p>Это связанная система, которая включает сайт или посадочную страницу, путь клиента до обращения, формы заявок и инструменты их обработки. В зависимости от задачи дополнительно подключаем CRM, Telegram и аналитику.</p></div></div></div>
         </div>
         <div class="svc rv">
-          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Можно заказать только бота, без сайта?</span></span><span class="svc-sign" aria-hidden="true"></span></button>
-          <div class="svc-wrap"><div class="svc-inner"><div class="svc-body faq-body"><p>Да. Работаем и по отдельным задачам — сайт, бот, дизайн или брендинг — и по системе под ключ, когда всё собрано вместе.</p></div></div></div>
+          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Можно заказать только сайт или Telegram-бота?</span></span><span class="svc-sign" aria-hidden="true"></span></button>
+          <div class="svc-wrap"><div class="svc-inner"><div class="svc-body faq-body"><p>Да. Комплексное решение не является обязательным. Вы можете заказать разработку сайта, автоматизацию, CRM или Telegram-инструмент отдельно.</p></div></div></div>
         </div>
         <div class="svc rv">
-          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Как устроена оплата?</span></span><span class="svc-sign" aria-hidden="true"></span></button>
-          <div class="svc-wrap"><div class="svc-inner"><div class="svc-body faq-body"><p>Стоимость фиксируем до начала работ. Обычно это аванс на старте и остаток по сдаче — точную схему согласуем под ваш проект.</p></div></div></div>
+          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Сколько стоит разработка?</span></span><span class="svc-sign" aria-hidden="true"></span></button>
+          <div class="svc-wrap"><div class="svc-inner"><div class="svc-body faq-body"><p>Стоимость зависит от функциональности, объёма страниц, сложности интеграций и требований к проекту. После изучения задачи готовим предложение с составом работ, сроками и фиксированной стоимостью согласованного объёма.</p></div></div></div>
         </div>
         <div class="svc rv">
-          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Что входит в поддержку после сдачи?</span></span><span class="svc-sign" aria-hidden="true"></span></button>
-          <div class="svc-wrap"><div class="svc-inner"><div class="svc-body faq-body"><p>90 дней бесплатно: правки, консультации, устранение ошибок. Дальше — по договорённости, если проекту нужно развитие.</p></div></div></div>
+          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Сколько времени занимает проект?</span></span><span class="svc-sign" aria-hidden="true"></span></button>
+          <div class="svc-wrap"><div class="svc-inner"><div class="svc-body faq-body"><p>Срок зависит от сложности и объёма работ. Небольшой лендинг и комплексная система с несколькими интеграциями требуют разного времени. Сроки определяем после обсуждения задачи и фиксируем до старта.</p></div></div></div>
+        </div>
+        <div class="svc rv">
+          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Как проходит коммуникация? Обязательны ли созвоны?</span></span><span class="svc-sign" aria-hidden="true"></span></button>
+          <div class="svc-wrap"><div class="svc-inner"><div class="svc-body faq-body"><p>Основное обсуждение можно провести в Telegram. Вы описываете задачу, передаёте необходимые материалы, а мы уточняем детали и присылаем предложение. Созвон не является обязательным условием для каждого проекта.</p></div></div></div>
+        </div>
+        <div class="svc rv">
+          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Как организована оплата?</span></span><span class="svc-sign" aria-hidden="true"></span></button>
+          <div class="svc-wrap"><div class="svc-inner"><div class="svc-body faq-body"><p>Оплату разбиваем на согласованные этапы. Условия, стоимость и порядок платежей фиксируем до начала разработки.</p></div></div></div>
+        </div>
+        <div class="svc rv">
+          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Входит ли реклама в стоимость проекта?</span></span><span class="svc-sign" aria-hidden="true"></span></button>
+          <div class="svc-wrap"><div class="svc-inner"><div class="svc-body faq-body"><p>Базовая разработка сайта и настройка обработки заявок не включают автоматическое ведение рекламных кампаний. Мы можем подготовить сайт и аналитику для работы с рекламным трафиком. Рекламное продвижение обсуждается отдельно, если оно требуется.</p></div></div></div>
+        </div>
+        <div class="svc rv">
+          <button class="svc-btn" aria-expanded="false"><span><span class="svc-name">Что происходит после запуска?</span></span><span class="svc-sign" aria-hidden="true"></span></button>
+          <div class="svc-wrap"><div class="svc-inner"><div class="svc-body faq-body"><p>После завершения проекта передаём согласованный результат и инструкции. Условия технической поддержки, консультаций и дальнейшего развития определяются отдельно для каждого проекта.</p></div></div></div>
         </div>
       </div>
     </div>
@@ -741,49 +683,49 @@ footer{border-top:1px solid var(--line-2);padding:34px 0 calc(40px + env(safe-ar
   <!-- CONTACT -->
   <section id="contact">
     <div class="wrap">
-      <div class="sec-head rv"><span class="eyebrow">Контакт</span><h2 class="caps">Расскажите о задаче.</h2></div>
+      <div class="sec-head rv"><span class="eyebrow">Начало сотрудничества</span><h2 class="caps">Расскажите о задаче.</h2></div>
       <div class="contact-grid">
         <div class="rv">
-          <p class="sec-intro">Опишите проект в двух предложениях — вернёмся с вопросами, форматом работы и оценкой в течение нескольких часов.</p>
+          <p class="sec-intro">Опишите, что хотите создать или улучшить. Мы изучим запрос, предложим подходящий формат реализации и подготовим предварительную оценку стоимости и сроков.</p>
           <ul class="promise">
-            <li><i aria-hidden="true"></i>Бесплатная консультация до начала работ</li>
-            <li><i aria-hidden="true"></i>Оценка в течение нескольких часов</li>
-            <li><i aria-hidden="true"></i>Фиксированная цена без скрытых доплат</li>
-            <li><i aria-hidden="true"></i>Первая рабочая версия за 1–3 дня</li>
+            <li><i aria-hidden="true"></i>Подбор решения под задачу бизнеса</li>
+            <li><i aria-hidden="true"></i>Понятный состав работ</li>
+            <li><i aria-hidden="true"></i>Согласование стоимости до старта</li>
+            <li><i aria-hidden="true"></i>Возможность обсуждать проект в Telegram без обязательных созвонов</li>
           </ul>
           <p class="direct">Можно написать напрямую: <a href="https://t.me/matvey_dmitrievych" target="_blank" rel="noopener">@matvey_dmitrievych</a></p>
         </div>
 
         <form id="brief" class="rv" novalidate>
           <div class="field">
-            <span class="lab" id="lbl-task">Что нужно сделать</span>
+            <span class="lab" id="lbl-task">Что нужно реализовать?</span>
             <div class="chips" role="group" aria-labelledby="lbl-task">
-              <label class="chip"><input type="radio" name="task" value="Сайт или лендинг" checked><span>Сайт или лендинг</span></label>
-              <label class="chip"><input type="radio" name="task" value="Telegram Mini App"><span>Telegram Mini App</span></label>
+              <label class="chip"><input type="radio" name="task" value="Воронка продаж под ключ" checked><span>Воронка продаж под ключ</span></label>
+              <label class="chip"><input type="radio" name="task" value="Сайт или лендинг"><span>Сайт или лендинг</span></label>
+              <label class="chip"><input type="radio" name="task" value="CRM и автоматизация"><span>CRM и автоматизация</span></label>
               <label class="chip"><input type="radio" name="task" value="Telegram-бот"><span>Telegram-бот</span></label>
-              <label class="chip"><input type="radio" name="task" value="UI/UX-дизайн"><span>UI/UX-дизайн</span></label>
-              <label class="chip"><input type="radio" name="task" value="Брендинг"><span>Брендинг</span></label>
-              <label class="chip"><input type="radio" name="task" value="Экосистема под ключ"><span>Под ключ</span></label>
+              <label class="chip"><input type="radio" name="task" value="Telegram Mini App"><span>Telegram Mini App</span></label>
+              <label class="chip"><input type="radio" name="task" value="Другое / пока не определился"><span>Другое / пока не определился</span></label>
             </div>
           </div>
           <div class="field">
             <span class="lab" id="lbl-budget">Ориентир по бюджету</span>
             <div class="chips" role="group" aria-labelledby="lbl-budget">
-              <label class="chip"><input type="radio" name="budget" value="до 10 000 ₽"><span>до 10 000 ₽</span></label>
-              <label class="chip"><input type="radio" name="budget" value="10 000–30 000 ₽" checked><span>10 000–30 000 ₽</span></label>
-              <label class="chip"><input type="radio" name="budget" value="30 000–70 000 ₽"><span>30 000–70 000 ₽</span></label>
-              <label class="chip"><input type="radio" name="budget" value="свыше 70 000 ₽"><span>свыше 70 000 ₽</span></label>
-              <label class="chip"><input type="radio" name="budget" value="нужно обсудить"><span>обсудим</span></label>
+              <label class="chip"><input type="radio" name="budget" value="До 50 000 ₽"><span>До 50 000 ₽</span></label>
+              <label class="chip"><input type="radio" name="budget" value="50 000–100 000 ₽"><span>50 000–100 000 ₽</span></label>
+              <label class="chip"><input type="radio" name="budget" value="100 000–200 000 ₽"><span>100 000–200 000 ₽</span></label>
+              <label class="chip"><input type="radio" name="budget" value="Более 200 000 ₽"><span>Более 200 000 ₽</span></label>
+              <label class="chip"><input type="radio" name="budget" value="Пока не определился" checked><span>Пока не определился</span></label>
             </div>
           </div>
           <div class="two">
-            <div class="field"><label class="lab" for="name">Имя</label><input class="inp" type="text" id="name" name="name" placeholder="Как к вам обращаться" autocomplete="name"></div>
-            <div class="field"><label class="lab" for="contactval">Telegram или телефон</label><input class="inp" type="text" id="contactval" name="contact" placeholder="@username" autocomplete="tel"></div>
+            <div class="field"><label class="lab" for="name">Имя</label><input class="inp" type="text" id="name" name="name" placeholder="Как к вам обращаться?" autocomplete="name"></div>
+            <div class="field"><label class="lab" for="contactval">Telegram или телефон</label><input class="inp" type="text" id="contactval" name="contact" placeholder="@username или номер телефона" autocomplete="tel"></div>
           </div>
-          <div class="field"><label class="lab" for="about">О проекте</label><textarea class="inp" id="about" name="about" rows="3" placeholder="Что за бизнес, какая задача, есть ли сроки"></textarea></div>
+          <div class="field"><label class="lab" for="about">О проекте</label><textarea class="inp" id="about" name="about" rows="3" placeholder="Кратко расскажите о своей компании, задаче и том, что хотите получить в результате."></textarea></div>
           <div class="form-foot">
-            <button type="submit" class="btn">Отправить в Telegram</button>
-            <span class="form-note">Заявка копируется в буфер и открывается чат — останется вставить и нажать «Отправить».</span>
+            <button type="submit" class="btn">Отправить заявку в Telegram</button>
+            <span class="form-note">После нажатия текст заявки будет скопирован, а в окне появится кнопка перехода в Telegram. Останется вставить сообщение и отправить его.</span>
           </div>
         </form>
       </div>
@@ -794,9 +736,10 @@ footer{border-top:1px solid var(--line-2);padding:34px 0 calc(40px + env(safe-ar
   <section>
     <div class="wrap">
       <div class="final-box rv">
-        <h2 class="caps">Ваш следующий шаг. <span class="grad-txt">мы уже готовы.</span></h2>
-        <p>Напишите пару предложений о задаче — подберём формат, назовём срок и стоимость. Без долгих брифов.</p>
+        <h2 class="caps">Ваш следующий шаг — <span class="grad-txt">описать задачу.</span></h2>
+        <p>Расскажите, какую задачу бизнеса хотите решить. Мы поможем определить подходящий формат разработки и подготовим план реализации.</p>
         <a href="#contact" class="btn">Получить расчёт</a>
+        <p class="fine">Без лишних обещаний. Сначала задача, затем конкретное решение.</p>
       </div>
     </div>
   </section>
@@ -804,8 +747,11 @@ footer{border-top:1px solid var(--line-2);padding:34px 0 calc(40px + env(safe-ar
 
 <footer>
   <div class="wrap foot">
-    <a href="#top" class="mark"><span class="core" aria-hidden="true"></span>SYNAPSE <em>agency</em></a>
-    <p class="foot-tag">Сайт приводит клиентов.<br>Система удерживает результат.</p>
+    <div class="foot-brand">
+      <a href="#top" class="mark"><span class="core" aria-hidden="true"></span>SYNAPSE <em>agency</em></a>
+      <p class="foot-desc">Разработка сайтов, воронок продаж и автоматизация бизнес-процессов для сервисного бизнеса.</p>
+    </div>
+    <p class="foot-tag">Сайт открывает путь к клиенту.<br>Система помогает не потерять обращение.</p>
     <div class="foot-row">
       <nav class="foot-nav" aria-label="Нижняя навигация">
         <a href="#services">Услуги</a><a href="#work">Работы</a><a href="#process">Процесс</a><a href="#faq">Вопросы</a>
@@ -822,7 +768,7 @@ footer{border-top:1px solid var(--line-2);padding:34px 0 calc(40px + env(safe-ar
   <div class="modal-box">
     <div class="ok" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></div>
     <h4 id="mtitle">Заявка готова</h4>
-    <p id="mtext">Текст скопирован в буфер обмена. Открываем чат — вставьте заявку и нажмите «Отправить».</p>
+    <p id="mtext">Текст скопирован в буфер обмена. Откройте чат, вставьте заявку и нажмите «Отправить».</p>
     <textarea class="inp" id="mbody" readonly rows="6" aria-label="Текст заявки"></textarea>
     <div class="modal-acts">
       <a class="btn" id="mtg" href="https://t.me/matvey_dmitrievych" target="_blank" rel="noopener">Открыть Telegram</a>
@@ -919,21 +865,6 @@ footer{border-top:1px solid var(--line-2);padding:34px 0 calc(40px + env(safe-ar
     rvs.forEach(function(el){io.observe(el)});
   }else{rvs.forEach(function(el){el.classList.add('in')})}
 
-  /* ---------- counters ---------- */
-  var counters=document.querySelectorAll('[data-count]');
-  if('IntersectionObserver' in window&&!reduce){
-    var io2=new IntersectionObserver(function(en){
-      en.forEach(function(e){
-        if(!e.isIntersecting)return;
-        var el=e.target,to=parseFloat(el.dataset.count),pre=el.dataset.prefix||'',suf=el.dataset.suffix||'',n=0;
-        var step=Math.max(1,Math.round(to/34));
-        var iv=setInterval(function(){n+=step;if(n>=to){n=to;clearInterval(iv)}el.textContent=pre+n+suf},28);
-        io2.unobserve(el);
-      });
-    },{threshold:0.6});
-    counters.forEach(function(el){io2.observe(el)});
-  }
-
   /* ---------- ripple ---------- */
   document.addEventListener('pointerdown',function(e){
     var t=e.target.closest('.btn, .chip, .fab');
@@ -945,16 +876,13 @@ footer{border-top:1px solid var(--line-2);padding:34px 0 calc(40px + env(safe-ar
     t.appendChild(s);setTimeout(function(){s.remove()},620);
   });
 
-  /* ---------- pointer glow + tilt ---------- */
-  var tilts=document.querySelectorAll('.tilt, .stat');
-  tilts.forEach(function(el){
+  /* ---------- pointer tilt ---------- */
+  document.querySelectorAll('.tilt').forEach(function(el){
     el.addEventListener('pointermove',function(e){
+      if(!(fine&&!reduce))return;
       var r=el.getBoundingClientRect();
       var px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
-      el.style.setProperty('--mx',(px*100)+'%');el.style.setProperty('--my',(py*100)+'%');
-      if(fine&&!reduce&&el.classList.contains('tilt')){
-        el.style.transform='perspective(800px) rotateX('+((0.5-py)*5).toFixed(2)+'deg) rotateY('+((px-0.5)*5).toFixed(2)+'deg) translateY(-5px)';
-      }
+      el.style.transform='perspective(800px) rotateX('+((0.5-py)*5).toFixed(2)+'deg) rotateY('+((px-0.5)*5).toFixed(2)+'deg) translateY(-5px)';
     });
     el.addEventListener('pointerleave',function(){el.style.transform=''});
   });
@@ -972,8 +900,8 @@ footer{border-top:1px solid var(--line-2);padding:34px 0 calc(40px + env(safe-ar
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){setDrawer(false);closeModal()}});
 
   /* ---------- tabs ---------- */
-  var tabs=[document.getElementById('tab-dev'),document.getElementById('tab-des')];
-  var panels=[document.getElementById('panel-dev'),document.getElementById('panel-des')];
+  var tabs=[document.getElementById('tab-main'),document.getElementById('tab-solo')];
+  var panels=[document.getElementById('panel-main'),document.getElementById('panel-solo')];
   var pill=document.getElementById('pill');
   function movePill(i){var t=tabs[i];pill.style.width=t.offsetWidth+'px';pill.style.transform='translateX('+(t.offsetLeft-5)+'px)'}
   function selectTab(i){
@@ -998,7 +926,7 @@ footer{border-top:1px solid var(--line-2);padding:34px 0 calc(40px + env(safe-ar
     });
   });
 
-  /* ---------- modal + form ---------- */
+  /* ---------- modal + form (copy to clipboard, then open Telegram) ---------- */
   var modal=document.getElementById('modal'),mtitle=document.getElementById('mtitle'),mtext=document.getElementById('mtext');
   var mbody=document.getElementById('mbody'),mtg=document.getElementById('mtg'),form=document.getElementById('brief');
   function closeModal(){modal.classList.remove('open');document.body.style.overflow=''}
