@@ -249,24 +249,66 @@ h1 .nw{white-space:nowrap}
 .svc-note a:hover,.direct a:hover{border-color:var(--txt)}
 
 /* ===================== РАБОТЫ ===================== */
-.work-card{margin-top:clamp(26px,5vw,42px);border-radius:clamp(20px,4vw,28px);border:1px solid var(--line);padding:clamp(22px,4.4vw,44px);position:relative;overflow:hidden;background:var(--ink-grad)}
-.work-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:clamp(24px,4vw,48px);position:relative}
-.work-cat{display:inline-block;margin-bottom:16px;font-size:11.5px;letter-spacing:.12em;color:var(--dim);padding:5px 12px;border-radius:99px;border:1px solid var(--line)}
-.work-in h3{margin:0 0 14px;font-size:clamp(19px,4.6vw,30px);font-weight:500;letter-spacing:-.025em}
-.work-in p{margin:0 0 26px;color:var(--muted);font-size:clamp(14px,3.4vw,16px);max-width:46ch}
-.impl{align-self:start;padding:clamp(18px,3.4vw,24px);border-radius:var(--radius-sm);border:1px solid var(--line);background:var(--fill-1)}
+.proj-list{margin-top:clamp(26px,5vw,42px);display:grid;gap:clamp(14px,2.4vw,20px)}
+.proj{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(18px,3.6vw,44px);padding:clamp(12px,2.4vw,20px);border-radius:clamp(22px,4vw,30px);border:1px solid var(--line);background:var(--ink-grad);transition:border-color .4s var(--ease),box-shadow .4s var(--ease)}
+.proj:hover{border-color:var(--line-hi);box-shadow:0 24px 70px var(--shadow-hi)}
+.proj-vis{position:relative;min-height:clamp(270px,34vw,360px);border-radius:clamp(16px,3vw,22px);border:1px solid var(--line-2);background:var(--fill-2);overflow:hidden;display:grid;place-items:center;padding:clamp(18px,3vw,30px)}
+.proj-vis::before{content:"";position:absolute;inset:0;background-image:linear-gradient(to right,var(--line-2) 1px,transparent 1px),linear-gradient(to bottom,var(--line-2) 1px,transparent 1px);background-size:30px 30px;
+  -webkit-mask-image:radial-gradient(72% 72% at 50% 50%,#000,transparent);mask-image:radial-gradient(72% 72% at 50% 50%,#000,transparent)}
+.proj-vis::after{content:"";position:absolute;width:70%;aspect-ratio:1;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,var(--glow),transparent 65%);pointer-events:none}
+.proj-body{display:flex;flex-direction:column;align-items:flex-start;min-width:0;padding:clamp(6px,1.6vw,16px) clamp(4px,1.2vw,12px) clamp(6px,1.2vw,12px) 0}
+.proj-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;margin-bottom:18px}
+.work-cat{display:inline-block;font-size:11.5px;letter-spacing:.12em;color:var(--dim);padding:5px 12px;border-radius:99px;border:1px solid var(--line)}
+.proj-idx{font-family:'Unbounded',sans-serif;font-size:12px;color:var(--dim)}
+.proj-body h3{margin:0 0 12px;font-size:clamp(19px,4.4vw,28px);font-weight:500;letter-spacing:-.025em;line-height:1.2}
+.proj-body > p{margin:0;max-width:50ch;color:var(--muted);font-size:clamp(14px,3.4vw,16px);line-height:1.6}
+.proj-sub{width:100%;margin-top:22px;padding-top:18px;border-top:1px solid var(--line-2)}
 .svc-label{display:block;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);font-weight:600;margin:0 0 8px}
-.impl ul{list-style:none;margin:0;padding:0}
-.impl li{padding:8px 0 8px 24px;position:relative;font-size:clamp(13.5px,3.2vw,14.5px);border-bottom:1px solid var(--line-2)}
-.impl li:last-child{border-bottom:0}
-.impl li::before{content:"";position:absolute;left:0;top:14px;width:13px;height:7px;border-left:1.5px solid var(--txt);border-bottom:1.5px solid var(--txt);transform:rotate(-45deg)}
-.quote-box{margin-top:14px;padding:clamp(20px,3.6vw,32px);border-radius:clamp(20px,4vw,28px);border:1px solid var(--line);background:var(--fill-1);position:relative;overflow:hidden}
-.quote-box .svc-label{margin-bottom:14px}
-blockquote{margin:0;font-size:clamp(15px,3.6vw,19px);font-weight:400;line-height:1.55;letter-spacing:-.01em;max-width:64ch;color:var(--txt)}
-.who{margin-top:20px;padding-top:16px;border-top:1px solid var(--line-2);display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
-.who .av{width:36px;height:36px;border-radius:50%;background:var(--chrome);display:grid;place-items:center;color:var(--on-chrome);font-weight:700;font-size:14px;flex:0 0 auto}
-.who b{font-weight:600;font-size:14.5px}
-.who span{font-size:12.5px;color:var(--dim)}
+.proj-feat{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 24px}
+.proj-feat li{padding:8px 0 8px 24px;position:relative;font-size:clamp(13.5px,3.2vw,14.5px)}
+.proj-feat li::before{content:"";position:absolute;left:0;top:14px;width:13px;height:7px;border-left:1.5px solid var(--txt);border-bottom:1.5px solid var(--txt);transform:rotate(-45deg)}
+.proj-actions{margin-top:24px;width:100%}
+.btn .arr{width:14px;height:14px;flex:0 0 auto;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s var(--ease)}
+.btn:hover .arr{transform:translate(2px,-2px)}
+.proj-quote{grid-column:1/-1;margin:0;padding:clamp(16px,2.6vw,24px) clamp(6px,1.4vw,14px) clamp(4px,1vw,10px);border-top:1px solid var(--line-2);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px clamp(20px,4vw,48px);align-items:end}
+.proj-quote .svc-label{grid-column:1/-1;margin:0}
+blockquote{margin:0;font-size:clamp(14.5px,3.4vw,16.5px);font-weight:400;line-height:1.6;letter-spacing:-.005em;max-width:72ch;color:var(--txt)}
+.who{display:flex;align-items:center;gap:12px}
+.who .av{width:36px;height:36px;border-radius:50%;background:var(--chrome);display:grid;place-items:center;color:var(--on-chrome);font-weight:700;font-size:13px;flex:0 0 auto}
+.who div{display:grid;line-height:1.35}
+.who b{font-weight:600;font-size:14px;white-space:nowrap}
+.who span{font-size:12.5px;color:var(--dim);white-space:nowrap}
+
+/* превью проектов (стилизованные макеты) */
+.mock{position:relative;z-index:1;width:100%;border-radius:16px;border:1px solid var(--line);background:var(--bg);box-shadow:0 26px 60px var(--shadow-hi);overflow:hidden;animation:floaty 7s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.browser{max-width:400px}
+.browser .bar{display:flex;align-items:center;gap:6px;padding:10px 12px;border-bottom:1px solid var(--line-2);background:var(--fill-1)}
+.browser .bar i{width:8px;height:8px;border-radius:50%;background:var(--line-hi);flex:0 0 auto}
+.browser .url{margin-left:8px;flex:1;min-width:0;padding:5px 12px;border-radius:99px;background:var(--fill-2);font-size:11.5px;color:var(--muted);letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.browser .screen{padding:clamp(22px,4vw,34px) clamp(14px,3vw,24px) clamp(22px,4vw,32px);display:grid;gap:16px;justify-items:center;text-align:center}
+.redy-word{font-family:'Unbounded',sans-serif;font-weight:700;font-size:clamp(28px,6vw,42px);letter-spacing:.08em;line-height:1;padding-left:.08em;background:var(--chrome);-webkit-background-clip:text;background-clip:text;color:transparent}
+.redy-chip{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);padding:4px 11px;border-radius:99px}
+.redy-art{width:min(100%,250px);height:auto;color:var(--txt);overflow:visible}
+.redy-art .dash{stroke-dasharray:4 6;animation:dash 1.1s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-20}}
+.phone{max-width:236px;border-radius:26px}
+.phone .p-head{display:flex;align-items:center;gap:10px;padding:13px 14px;border-bottom:1px solid var(--line-2);background:var(--fill-1)}
+.p-av{width:30px;height:30px;border-radius:50%;background:var(--chrome);flex:0 0 auto}
+.p-nm{min-width:0;font-size:13px;font-weight:600;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.p-nm small{display:block;font-size:11px;font-weight:400;color:var(--dim)}
+.p-chat{display:flex;flex-direction:column;gap:9px;padding:16px 14px 14px}
+.bub{display:grid;gap:6px;max-width:80%;padding:10px 12px;border-radius:14px}
+.bub.l{align-self:flex-start;background:var(--fill-3);border-bottom-left-radius:4px;width:72%}
+.bub.r{align-self:flex-end;background:var(--steel);border-bottom-right-radius:4px;width:58%}
+.ln{display:block;height:5px;border-radius:3px;background:var(--muted);opacity:.5}
+.bub.r .ln{background:var(--on-steel);opacity:.5}
+.ln.s{width:62%}.ln.m{width:82%}
+.bub.typing{align-self:flex-start;width:auto;display:flex;gap:5px;padding:12px 14px;background:var(--fill-3);border-bottom-left-radius:4px}
+.bub.typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:blink 1.2s ease-in-out infinite}
+.bub.typing i:nth-child(2){animation-delay:.18s}.bub.typing i:nth-child(3){animation-delay:.36s}
+@keyframes blink{0%,60%,100%{opacity:.25;transform:none}30%{opacity:1;transform:translateY(-3px)}}
+.p-in{margin:0 12px 12px;height:30px;border-radius:99px;border:1px solid var(--line);background:var(--fill-1)}
 
 /* ===================== ПРОЦЕСС ===================== */
 .steps{margin-top:clamp(28px,5vw,46px);display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
@@ -336,11 +378,12 @@ form{padding:clamp(20px,4vw,34px);border-radius:clamp(20px,4vw,26px);border:1px 
   .hero-grid{grid-template-columns:1fr}
   .hero-art{order:-1;max-width:min(74vw,360px)}
   .steps{grid-template-columns:repeat(2,1fr)}
-  .work-in{grid-template-columns:1fr}
+  .proj{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr}
   .value-grid{grid-template-columns:1fr}
 }
 @media (max-width:860px){
+  .proj-quote{grid-template-columns:1fr}
   .nav{display:none}
   .hdr-tools{margin-left:auto}
   .burger{display:grid}
@@ -363,9 +406,16 @@ form{padding:clamp(20px,4vw,34px);border-radius:clamp(20px,4vw,26px);border:1px 
   .two{grid-template-columns:1fr;gap:24px}
   .form-foot .btn{width:100%}
   .form-note{flex:1 1 100%;text-align:center}
-  .work-in .btn{width:100%}
+  .proj-feat{grid-template-columns:1fr}
+  .proj-actions .btn{width:100%}
+  .proj{padding:10px}
+  .proj-body{padding:6px 8px 8px}
   .foot-top{flex-direction:column}
   .promise li:hover{transform:none}
+}
+@media (max-width:400px){
+  .work-cat{font-size:10px;letter-spacing:.07em;padding:5px 10px;white-space:nowrap}
+  .proj-actions .btn{padding:0 14px;font-size:14px}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
@@ -515,29 +565,86 @@ form{padding:clamp(20px,4vw,34px);border-radius:clamp(20px,4vw,26px);border:1px 
         <span class="eyebrow">Портфолио</span>
         <h2 class="caps">Решения, которые уже работают.</h2>
       </div>
-      <div class="work-card rv">
-        <div class="work-in">
-          <div>
-            <span class="work-cat">TELEGRAM BOT · AUTOMATION</span>
+
+      <div class="proj-list">
+
+        <!-- 01 · сайт REDY -->
+        <article class="proj rv">
+          <div class="proj-vis" aria-hidden="true">
+            <div class="mock browser">
+              <div class="bar"><i></i><i></i><i></i><span class="url">redy.dev</span></div>
+              <div class="screen">
+                <span class="redy-word">REDY</span>
+                <svg class="redy-art" viewBox="0 0 260 96" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="18" y="12" width="46" height="72" rx="23"/>
+                  <circle cx="41" cy="26" r="5"/>
+                  <circle cx="41" cy="50" r="6.5"/>
+                  <rect x="33" y="64" width="16" height="9" rx="4.5"/>
+                  <path class="dash" d="M80 48H162"/>
+                  <path d="M154 40l10 8-10 8"/>
+                  <rect x="186" y="10" width="54" height="76" rx="11"/>
+                  <path d="M204 18h18"/>
+                  <circle cx="204" cy="48" r="5.5"/>
+                  <path d="M209.5 48H228M222 48v5M227 48v5"/>
+                </svg>
+                <span class="redy-chip">REDY Remote</span>
+              </div>
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-meta"><span class="work-cat">WEBSITE · EN / IT</span><span class="proj-idx">01</span></div>
+            <h3>Сайт бренда REDY</h3>
+            <p>Двуязычный сайт компании, которая создаёт электронные решения. Презентация продукта REDY Remote: ключи-брелоки переносятся в смартфон.</p>
+            <div class="proj-sub">
+              <span class="svc-label">Что на сайте</span>
+              <ul class="proj-feat">
+                <li>Презентация продукта REDY Remote</li>
+                <li>Версии на английском и итальянском</li>
+                <li>Переход на страницу продукта</li>
+                <li>Контакты и ссылка на Instagram</li>
+              </ul>
+            </div>
+            <div class="proj-actions"><a class="btn" href="https://redy.dev" target="_blank" rel="noopener">Открыть redy.dev <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div>
+          </div>
+        </article>
+
+        <!-- 02 · Telegram-бот -->
+        <article class="proj rv">
+          <div class="proj-vis" aria-hidden="true">
+            <div class="mock phone">
+              <div class="p-head"><span class="p-av"></span><span class="p-nm">Rodion_gift6bot<small>бот</small></span></div>
+              <div class="p-chat">
+                <div class="bub l"><span class="ln"></span><span class="ln s"></span></div>
+                <div class="bub r"><span class="ln m"></span></div>
+                <div class="bub l"><span class="ln"></span><span class="ln m"></span><span class="ln s"></span></div>
+                <div class="bub r"><span class="ln"></span><span class="ln s"></span></div>
+                <div class="bub typing"><i></i><i></i><i></i></div>
+              </div>
+              <div class="p-in"></div>
+            </div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-meta"><span class="work-cat">TELEGRAM BOT · AUTOMATION</span><span class="proj-idx">02</span></div>
             <h3>Бизнес-бот для обработки обращений</h3>
             <p>Telegram-бот для автоматизации первичного взаимодействия с клиентами.</p>
-            <a class="btn" href="https://t.me/Rodion_gift6bot" target="_blank" rel="noopener">Открыть проект в Telegram</a>
+            <div class="proj-sub">
+              <span class="svc-label">Что реализовано</span>
+              <ul class="proj-feat">
+                <li>Сценарии общения с пользователями</li>
+                <li>Сбор и квалификация обращений</li>
+                <li>Автоматические ответы</li>
+                <li>Передача информации менеджеру</li>
+              </ul>
+            </div>
+            <div class="proj-actions"><a class="btn" href="https://t.me/Rodion_gift6bot" target="_blank" rel="noopener">Открыть проект в Telegram <svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div>
           </div>
-          <div class="impl">
-            <span class="svc-label">Что реализовано</span>
-            <ul>
-              <li>Сценарии общения с пользователями</li>
-              <li>Сбор и квалификация обращений</li>
-              <li>Автоматические ответы</li>
-              <li>Передача информации менеджеру</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="quote-box rv">
-        <span class="svc-label">Отзыв клиента</span>
-        <blockquote>«Проект был выполнен быстро: сложный функционал бота настроен всего за три дня. Вся логика и интеграции работают без сбоев, коммуникация на протяжении сотрудничества была чёткой и понятной. Полностью доволен результатом и могу смело рекомендовать как надёжного исполнителя».</blockquote>
-        <div class="who"><span class="av" aria-hidden="true">Р</span><b>Родион Олегович</b><span>Заказчик Telegram-бота</span></div>
+          <figure class="proj-quote">
+            <span class="svc-label">Отзыв клиента</span>
+            <blockquote>«Проект был выполнен быстро: сложный функционал бота настроен всего за три дня. Вся логика и интеграции работают без сбоев, коммуникация на протяжении сотрудничества была чёткой и понятной. Полностью доволен результатом и могу смело рекомендовать как надёжного исполнителя».</blockquote>
+            <div class="who"><span class="av" aria-hidden="true">Р</span><div><b>Родион Олегович</b><span>Заказчик Telegram-бота</span></div></div>
+          </figure>
+        </article>
+
       </div>
     </div>
   </section>
